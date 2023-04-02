@@ -1,0 +1,37 @@
+﻿<Application x:Class="Que.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Que"
+             xmlns:viewModel="clr-namespace:Que.MVVM.ViewModel"
+             xmlns:view="clr-namespace:Que.MVVM.View"
+             StartupUri="ls/LoginView.xaml">
+    
+    
+    <!-- ls/LoginView.xaml  MainWindow.xaml -->
+    <!-- xmlns:viewModel="clr-namespace:Que.MVVM.ViewModel" (connect to ViewModel folder)-->
+    <!-- xmlns:view="clr-namespace:Que.MVVM.View" (connect to View folder)-->
+    
+    <!--Add styles/thems-->
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Theme/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="Theme/TextboxTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--Add mini squares to MainWindow-->
+            <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+                <view:HomeView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:DiscoveryViewModel}">
+                <view:DiscoveryView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:FeaturedViewModel}">
+                <view:FeaturedView/>
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

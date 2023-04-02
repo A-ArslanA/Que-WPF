@@ -1,0 +1,108 @@
+﻿<Window x:Class="Que.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Que"
+        xmlns:viewModel="clr-namespace:Que.MVVM.ViewModel" 
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="920"
+        WindowStyle="None"
+        ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown"
+        MouseEnter="Window_MouseEnter"
+        Icon="C:\Users\arsla\source\repos\Que\Que\images\logo.png">
+
+    <!--add ViewModel in links-->
+    <!--to see needed window-->
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+    
+    <Border Background="#272537"
+            CornerRadius="20">
+        <!--Main Grid-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+            <!--LOGO-->
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left">
+                <Image Source="C:\Users\arsla\source\repos\Que\Que\images\logo.png" Height="30" Margin="20, 0, 10, 0"/>
+                <TextBlock Text="Que"
+                           Foreground="White"
+                           FontSize="22"
+                           FontFamily="/Fonts/#Poppins"/>
+            </StackPanel>
+            <!--END LOGO-->
+            
+            <!--MENU-->
+            <StackPanel Grid.Row="1">
+                <RadioButton Content="Home"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             IsChecked="True"
+                             Command="{Binding HomeViewCommand}"/>
+
+                <RadioButton Content="Discovery"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding DiscoveryViewCommand}"/>
+
+                <RadioButton Content="Featured"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding FeaturedViewCommand}"/>
+
+                <RadioButton x:Name="ToOther"
+                            Content="Other"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Click="ToOther_Click"/>
+            </StackPanel>
+            <!--END MENU-->
+
+            <!--SEARCH-->
+            
+            <TextBox Width="250"
+                     Height="40"
+                     VerticalContentAlignment="Center"
+                     HorizontalAlignment="Left"
+                     Margin="5"
+                     Grid.Column="1"
+                     Style="{StaticResource ModernTextBox}"/>
+            <!--END SEARCH-->
+
+            <!--CONTENT BLOCK (Links to View folder(mini square))-->
+            <ContentControl Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="10"
+                            Content="{Binding CurrentView}"/>
+            <!--END CONTENT BLOCK-->
+
+        </Grid>
+        <!--Main Grid end-->    
+    </Border>
+
+    
+</Window>
