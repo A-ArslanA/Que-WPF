@@ -1,0 +1,13 @@
+Core = main classes? for mvvm pattern
+Fonts = fonts
+images = images
+ls = login || signUp
+MVVM = mvvm pattern for mainWindow => View folder => radio buttons window(User control(mini squares)) => ModelView Connect mini square || mainWindow
+Theme = themes for main window
+app.xaml(cs) = startwindow(DB func) || add <Application.Resources> more more more
+mainWindow = MainWindow
+OtherWindow = show not added func
+DB in que.db || libraries || Class(user.cs) || Class(ApplicationContext.cs) || app.xaml.cs
+
+final/  upload to GitHub( mb convert to .exe) 
+
